@@ -396,7 +396,7 @@ void ft_putnbr_base(int nbr, char *base) {
 		if (ft_strlen(base) > 1) {
 			while (base[i]) {
 				m = i + 1;
-				if (base[i] == '+' || base[i] == '-') {
+				if (base[i] == '+' || base[i] == '-' || base[i] == ' ') {
 					is_base = 0;
 				}
 				while (base[m]) {
