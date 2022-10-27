@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 void ft_putchar(char c) {
@@ -702,6 +703,52 @@ int ft_ten_queens_puzzle(void)
 	int i = 0;
 }
 
+char *ft_strdup(char *src)
+{
+	size_t N = 0;
+	char *dub = NULL;
+	while (src[N])
+	{
+		N++;
+	}
+	dub = (char *)malloc(N + 1);
+	if (dub == NULL)
+	{
+		return(NULL);
+	}
+	N = 0;
+	while (src[N])
+	{
+		dub[N] = src[N];
+		N++;
+	}
+	dub[N] = '\0';
+	return(dub);
+
+}
+
+int *ft_range(int min, int max)
+{
+	int *ran = NULL;
+	size_t i = min;
+	if (min >= max)
+	{
+		return(NULL);
+	}
+	ran = (int *)malloc((max - min) * sizeof(int));
+	if (ran == NULL)
+	{
+		return(NULL);
+	}
+	while (i < max)
+	{
+		ran[i - min] = i;
+		i++;
+	}
+	return(ran);
+
+}
+
 int main(void) {
-	ft_putnbr(ft_find_next_prime(-100));
+	ft_puttab(ft_range(0,1000000000), 1000000000);
 }

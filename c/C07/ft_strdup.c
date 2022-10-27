@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 void ft_putchar(char c) {
@@ -702,6 +703,31 @@ int ft_ten_queens_puzzle(void)
 	int i = 0;
 }
 
+char *ft_strdup(char *src)
+{
+	size_t N = 0;
+	char *dub = NULL;
+	while (src[N])
+	{
+		N++;
+	}
+	dub = (char *)malloc(N + 1);
+	if (dub == NULL)
+	{
+		return(NULL);
+	}
+	N = 0;
+	while (src[N])
+	{
+		dub[N] = src[N];
+		N++;
+	}
+	dub[N] = '\0';
+	return(dub);
+
+}
+
 int main(void) {
-	ft_putnbr(ft_find_next_prime(-100));
+	char src[] = {"This computes the number of bytes that ten integers occupy in memory, then requests that many bytes from malloc and assigns the result to a pointer named array (due to C syntax, pointers and arrays can be used interchangeably in some situations)."};
+	ft_putstr(ft_strdup(src));
 }
